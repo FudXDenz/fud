@@ -1,4 +1,7 @@
 
+VERSION = '1.0.0'
+
+
 import nodes
 
 def main():
@@ -7,6 +10,9 @@ def main():
     parser.add_argument('--list', action='store_true', help='List notes')
     parser.add_argument('--delete', type=int, help='Delete note by ID')
     args = parser.parse_args()
+    if args.version:
+        print("Version:", VERSION)
+        return
 
     if args.add:
         nodes.add_note(args.add)
@@ -17,4 +23,7 @@ def main():
     elif args.delete:
         nodes.delete_note(args.delete)
         print('Note deleted.')
+
+
+    parser.add_argument('--version', action='store_true', help='Show version')
 
