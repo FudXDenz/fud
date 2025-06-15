@@ -1,3 +1,12 @@
+
+import utils
+
+def add_note(content):
+    if not utils.validate_note(content):
+        raise ValueError('Note cannot be empty')
+    note_id = len(NOTES) + 1
+    NOTES.append(Node(note_id, content))
+
 class Node:
     def __init__(self, id, content):
         self.id = id
